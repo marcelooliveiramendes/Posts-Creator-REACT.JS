@@ -67,24 +67,21 @@ class Home extends Component{
       <section className='container'>
 
           <div className='searchBox'>
-            {!!searchValue && (
-              <h1>Search value: {searchValue}</h1>
-              
-            )}
             <InputText handleChange={this.handleChange} value={searchValue}/>
+            {!!searchValue && (<h1>Search value:{searchValue}</h1>)}
+            {filteredPosts.length === 0 &&(
+              <p>Não possui nenhum post com "{searchValue}"</p>
+            )}
           </div>
           
-          
+         
           
           {filteredPosts.length > 0 &&(
             <Posts posts={filteredPosts}/>
 
           )}
           
-          {filteredPosts.length === 0 &&(
-            <p>Não possui nenhum post com "{searchValue}"</p>
-
-          )}
+          
 
           <div className='button-container'>
             {!searchValue && (
